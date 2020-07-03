@@ -4,25 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const PRODUCTS = [
-  {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
-  {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
-  {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
-  {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
-  {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
-  {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
-];
-
-let data = [
-  { id: 1, completed: true, title: 'Buy a bread' },
-  { id: 2, completed: false, title: 'Buy some milk' },
-  { id: 3, completed: false, title: 'Buy an eggs' }
-]
-
-
 ReactDOM.render(
   <React.StrictMode>
-    <App data={data} products={PRODUCTS} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
