@@ -29,10 +29,10 @@ class TodoItem extends React.Component {
           context => (
             <li>
               <input type='checkbox'
-                onChange={() => this.props.changeTodoItem(this.props.todo.id)}
+                onChange={() => this.props.changeTodoItem(this.props.index)}
                 checked={this.props.todo.completed} />
               <span className={this.props.todo.completed ? "done" : ""}>
-                {`${this.props.todo.id}.`}
+                {`${this.props.index}.`}
                 {`${this.props.todo.title}`}
                 &nbsp;
                 <button className='rm-item' onClick={() => {context.removeTodo(this.props.todo.id)}}>&times;</button>

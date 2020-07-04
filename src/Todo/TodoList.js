@@ -16,11 +16,13 @@ class TodoList extends React.Component {
   }
 
   render() {
+    console.log('Next todos', this.props.todos)
+
     return (
       <ul style={styles.ul}>
         {
-          this.props.todos.map(todo => {
-            return <TodoItem todo={todo} key={todo.id} changeTodoItem={this.props.changeTodoItem} />
+          this.props.todos.map((todo, index) => {
+            return <TodoItem todo={todo} key={todo.id} index={index + 1} changeTodoItem={this.props.changeTodoItem} />
           })
         }
       </ul>

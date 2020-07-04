@@ -1,6 +1,6 @@
 import React from 'react'
 import { TodoList } from './Todo/TodoList'
-import { func } from 'prop-types'
+import AddTodo from './Todo/AddTodo'
 import ContextRemoveTodoItem from './context'
 
 class App extends React.Component {
@@ -17,11 +17,17 @@ class App extends React.Component {
   }
 
   changeTodoItem = function (id) {
+    console.group('DEBUG App')
+    console.log('id', id)
+    console.log(this.constructor.name)
+    console.log('State changed', this.state.todos)
+    console.groupEnd()
+
     let nextTodos = this.state.todos
     nextTodos[id - 1].completed = !nextTodos[id - 1].completed
     this.setState({ todos: nextTodos })
 
-    console.log('State changed', this.state.todos)
+    
   }
 
   removeTodo = function (id) {
@@ -31,15 +37,25 @@ class App extends React.Component {
     this.setState({ todos: nextTodos })
   }
 
+  addTodo = function (title) {
+    this.setState({
+      todos: this.state.todos.concat([{id: Date.now(), completed: false, title: title}])
+    })
+  }
+
   changeTodoItem = this.changeTodoItem.bind(this)
   removeTodo = this.removeTodo.bind(this)
+  addTodo = this.addTodo.bind(this)
 
   render() {
     return (
       <ContextRemoveTodoItem.Provider value={{ removeTodo: this.removeTodo }}>
         <div className='wrapper'>
           <h1>ToDo list</h1>
-          <TodoList todos={this.state.todos} changeTodoItem={this.changeTodoItem} />
+          <AddTodo onCreate={this.addTodo} />
+          {this.state.todos.length
+              ? <TodoList todos={this.state.todos} changeTodoItem={this.changeTodoItem} />
+              : <p>No todos</p>}
         </div>
       </ContextRemoveTodoItem.Provider>
     )
