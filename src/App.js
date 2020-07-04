@@ -1,6 +1,7 @@
 import React from 'react'
 import { TodoList } from './Todo/TodoList'
 import AddTodo from './Todo/AddTodo'
+import Loader from './loader'
 import ContextRemoveTodoItem from './context'
 
 class App extends React.Component {
@@ -8,12 +9,19 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      todos: [
-        { id: 1, completed: true, title: 'Buy a bread' },
-        { id: 2, completed: false, title: 'Buy some milk' },
-        { id: 3, completed: false, title: 'Buy an eggs' }
-      ]
+      todos: [],
+      loadingTodos: true
     }
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=15')
+      .then(response => response.json())
+      .then(json => {
+        setTimeout(() => {
+          this.setState({ todos: json, loadingTodos: false })
+        }, 3000)
+      })
   }
 
   changeTodoItem = function (id) {
@@ -26,8 +34,6 @@ class App extends React.Component {
     let nextTodos = this.state.todos
     nextTodos[id - 1].completed = !nextTodos[id - 1].completed
     this.setState({ todos: nextTodos })
-
-    
   }
 
   removeTodo = function (id) {
@@ -39,7 +45,7 @@ class App extends React.Component {
 
   addTodo = function (title) {
     this.setState({
-      todos: this.state.todos.concat([{id: Date.now(), completed: false, title: title}])
+      todos: this.state.todos.concat([{ id: Date.now(), completed: false, title: title }])
     })
   }
 
@@ -53,9 +59,14 @@ class App extends React.Component {
         <div className='wrapper'>
           <h1>ToDo list</h1>
           <AddTodo onCreate={this.addTodo} />
+          {this.state.loadingTodos && <Loader />}
           {this.state.todos.length
-              ? <TodoList todos={this.state.todos} changeTodoItem={this.changeTodoItem} />
-              : <p>No todos</p>}
+            ? <TodoList todos={this.state.todos} changeTodoItem={this.changeTodoItem} />
+            : (this.state.loadingTodos
+                ? null
+                : <p>No todos</p>
+              )
+          }
         </div>
       </ContextRemoveTodoItem.Provider>
     )
