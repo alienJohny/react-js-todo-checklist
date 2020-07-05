@@ -7,3 +7,9 @@ node_js:
 branches:
   only:
     - master
+
+deploy:
+  provider: heroku
+  app: todo-checklist-react
+  api_key:
+    secure: d3f6fdff-3b4a-46db-8eb0-a18388600dea
