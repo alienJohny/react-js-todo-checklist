@@ -11,10 +11,6 @@ const styles = {
 }
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     console.log('Next todos', this.props.todos)
 

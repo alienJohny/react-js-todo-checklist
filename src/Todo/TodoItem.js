@@ -1,12 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ContextRemoveTodoItem from '../context'
 
 class TodoItem extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   static contextType = ContextRemoveTodoItem
 
   componentWillReceiveProps(obj) {
