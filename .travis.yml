@@ -12,4 +12,4 @@ deploy:
   provider: heroku
   app: todo-checklist-react
   api_key:
-    secure: "EgUo4ueIEapmwjI1JcmDMLE4ltcdL0EtsTa2YZeI1aOj93BmC097WV17jMAQcgUX6EzCvBFJDuu9UNR4awz/XI9zqKNK4eypLoDYmN0fGve+nMyfWxFbPlOYew8S7kq93KDroFT9jjUQsa7KOFM6hFBMN0XF0qwg5zLxNR2UuYw="
+    secure: "R2foDeQHGOTSiVVBUp0Lmjq8tgkg41LNPifPGHXHsiOLx8KVVATDAVzMgvfdIJN0RyHMvdthdo5earvXMQ1ug0GzT+aS07MGitLKnmXuL83jq+idwiRbeQQhohNxXKTl61aYDeVyGSInhR5A4EWTn3w38aovuFPtjYfZQi9Nv60="
