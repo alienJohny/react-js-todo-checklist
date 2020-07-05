@@ -5,6 +5,8 @@ node_js:
 branches:
   only:
   - master
+install:
+  - npm install
 deploy:
   provider: heroku
   app: todo-checklist-react
