@@ -1,15 +1,12 @@
 sudo: false
-
 language: node_js
 node_js:
-  - 12
-
+- 12
 branches:
   only:
-    - master
-
+  - master
 deploy:
   provider: heroku
   app: todo-checklist-react
   api_key:
-    secure: 30ec8f37-efa7-4261-a564-1e727c64e33e
+    secure: ScpScGnGwwRVb5CZotmO6uFa1jcqy1Rtr2owO7ClrYAesr5DKVMmXnf6ilARVgpqRvP/h+l5QYonYVaI0zricnDpQL1lOHy+msVH85lq+fJJS5ZhdIUGeQdtGyZoQyp4087wBoaSOoktffCUYWnieKXvtpGx5wrd0z91KhCJ4yWlDZEULu5DG2ZAgiKk4RmrEXLfqaEg2+9EmgC4f1ITszOcNcoN7a3v8CGZil6H3nvN/V10XO9kMmK3dYOPMjbB1Kyo+vIZRnaIYKYPjbe3mPmoKa4Kh1l+BOaCNHCDA4uonkOBP01vhsBSSPsd0OOY0kx2xPgFaxgdl/mj2r16cmZrg3YnEtm8PGPKjCulf/NWUYaKYGqeNdFQe2PrfWh4h2Wld3MoVKvf2GOhBOGOFzSMuupnQojaOwFI87DQ7RaEHEmBpFO/yjOOXJ11l6PwCbrnkaSsMrK4v8moIhhS3JOglayLgBMxWZGeEMoVbrfW4IWITzkM75tLil4/KraYQlxEjuYdjvOPDDssE+k7sk2xb/JQ+JBRSuJNrxulQVaikNgj/QplBciK+fhRcQdmu9yCPb3GZOnkZnJX/I/Ycfx2sbQiarqeLL5WuoV6WwUy4LeQ7G5LOFBTG2RIss9BA0FrS+knGE7F3Vx/xLI+FFztqoc35BljbjLKOWcvf6Y=
